@@ -8,7 +8,7 @@ fi
 SYSTEM=$(uname)
 #check if MacOS or Linux because date is different
 if [ "$SYSTEM" == "Darwin" ]; then
-  WEEKAGO=$(date -v -7d +%F)
+  WEEKAGO=$(date -v -30d +%F)
 else
   WEEKAGO=$(date --date="last week" +%F)
 fi
