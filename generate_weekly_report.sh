@@ -12,7 +12,7 @@ if [ "$SYSTEM" == "Darwin" ]; then
 else
   WEEKAGO=$(date --date="last month" +%F)
 fi
-WEEK_NO=$(date +"%U %Y")
+WEEK_NO=$(date +"%D")
 TEMPLATE="{{range .}}* [#{{.number}}]({{.url}}):  {{.title}}{{\"\n\"}}{{end}}"
 REPO_NAME=$1
 ORG=$2
@@ -25,7 +25,7 @@ FILENAME=".lastweek_${REPO_NAME//\//_}"
 #check if we've already gotten the number of stars/forks from the previous week
 if [ -f "$FILENAME" ]; then
   . $FILENAME
-  #echo "Last week stats"
+  #echo "Last month stats"
   #echo $LAST_WEEK_FORKS
   #echo $LAST_WEEK_STARS
   STAR_DIFF=$(expr $STARS - $LAST_WEEK_STARS)
@@ -54,17 +54,17 @@ none_or_print () {
   echo ""
 }
 
-echo "# Weekly Report"
-echo "Weekly status report for $REPO_NAME Week #$WEEK_NO"
+echo "# Monthy Report"
+echo "Monthy status report for $REPO_NAME month #$WEEK_NO"
 echo ""
 echo ""
-echo "## Here's what the team has focused on this week:"
+echo "## Here's what the team has focused on this Monthy:"
 echo "* "
 
 echo ""
 
-echo "## Weekly Stats"
-echo "| | Opened this week| Closed this week|"
+echo "## Monthy Stats"
+echo "| | Opened this month| Closed this month|"
 echo "|--|---|-----|"
 echo "|Issues| " $(wc -l <<< "$OPENED_ISSUES") "| "$(wc -l <<< "$CLOSED_ISSUES")"|"
 echo "|PR's| " $(wc -l <<< "$OPENED_PR") "| " $(wc -l <<< "$CLOSED_PR")"|"
@@ -79,19 +79,19 @@ echo ""
 
 
 echo "## PR's Closed"
-#closed PRs in the last week
+#closed PRs in the last month
 none_or_print "$CLOSED_PR"
 
 echo "## PR's Opened"
-#opened PRSs last week
+#opened PRSs last month
 none_or_print "$OPENED_PR"
 
 echo "## Issues Opened"
-#opened issuess in the last week
+#opened issuess in the last month
 none_or_print "$OPENED_ISSUES"
 
 echo "## Issues Closed"
-#closed issues in the last week
+#closed issues in the last month
 none_or_print "$CLOSED_ISSUES"
 
 echo "## Community PRs Closed"
