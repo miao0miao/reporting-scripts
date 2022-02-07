@@ -10,7 +10,7 @@ SYSTEM=$(uname)
 if [ "$SYSTEM" == "Darwin" ]; then
   WEEKAGO=$(date -v -30d +%F)
 else
-  WEEKAGO=$(date --date="last week" +%F)
+  WEEKAGO=$(date --date="last month" +%F)
 fi
 WEEK_NO=$(date +"%U %Y")
 TEMPLATE="{{range .}}* [#{{.number}}]({{.url}}):  {{.title}}{{\"\n\"}}{{end}}"
