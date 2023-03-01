@@ -8,9 +8,9 @@ fi
 SYSTEM=$(uname)
 #check if MacOS or Linux because date is different
 if [ "$SYSTEM" == "Darwin" ]; then
-  WEEKAGO=$(date -v -30d +%F)
+  WEEKAGO=$(date -v -90d +%F)
 else
-  WEEKAGO=$(date --date="last month" +%F)
+  WEEKAGO=$(date --date="last quarter" +%F)
 fi
 WEEK_NO=$(date +"%D")
 TEMPLATE="{{range .}}* [#{{.number}}]({{.url}}):  {{.title}}{{\"\n\"}}{{end}}"
