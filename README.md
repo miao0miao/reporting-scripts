@@ -1,5 +1,5 @@
 # reporting-scripts
-Reporting scripts to generate reports/stats of Github repos
+Reporting scripts to generate reports/stats of Github repos.
 
 ## Usage
 To use this script, you must have the [github cli](https://cli.github.com/) installed.  After installation, you'll need to login:
